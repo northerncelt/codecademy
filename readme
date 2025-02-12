@@ -1,1 +1,5 @@
-
+I added a bit more code than what the project specs called for just to get me the experience.
+I included a section that contains events and information for the store.
+I have a ‘bottom’ and ‘top’ link in the box, but the top link does not scroll all the way to the top.
+I believe this may be because of the header. It is the same issue weather the header is 'sticky' or 'fixed'.
+If you find a solution please let me know, would be much appreciated.
