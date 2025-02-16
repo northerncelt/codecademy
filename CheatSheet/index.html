@@ -4,66 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enhanced Color Calculator</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="./resources/css/style.css" type="text/css">
-    <!--script src="resources/scripts/myscript.js"></script-->   
 </head>
 <body>
-    <div class="container">
+    <div class="container"> <!-- Main container -->
         <h1>Enhanced Color Calculator</h1>
         <div class="color-inputs">
-            <div class="color-input">
+            <!-- Hex color input -->
+            <div class="color-input"> <!-- Color input container -->
                 <label for="hex">Hex:</label>
                 <input type="text" id="hex" name="hex" placeholder="#FFFFFF" oninput="updateColor('hex')">
             </div>
-            <div class="color-input">
+            <!-- RGB color input -->
+            <div class="color-input"> <!-- Color input container -->
                 <label for="rgb">RGB:</label>
                 <input type="text" id="rgb" name="rgb" placeholder="255,255,255" oninput="updateColor('rgb')">
             </div>
-            <div class="color-input">
+            <!-- HSL color input -->
+            <div class="color-input"> <!-- Color input container -->
                 <label for="hsl">HSL:</label>
                 <input type="text" id="hsl" name="hsl" placeholder="0, 100%, 50%" oninput="updateColor('hsl')">
             </div>
-            <div class="color-input">
+            <!-- Named color input with dropdown -->
+            <div class="color-input"> <!-- Color input container -->
                 <label for="color">Named Color:</label>
-                <input type="text" id="color" name="color" placeholder="White" oninput="updateColor('color')">
+                <input type="text" id="color" name="color" placeholder="White" oninput="updateColor('color')" onkeyup="showColorDropdown()">
+                <div id="colorDropdown" class="dropdown-content"></div>
             </div>
         </div>
+        <!-- Color preview box -->
         <div class="color-preview" id="colorPreview"></div>
+        <!-- Color output text -->
         <div class="color-output" id="output"></div>
+        <!-- Clear button -->
+        <button onclick="clearInputs()">Clear</button>
     </div>
-    <!--script src="resources/scripts/myscript.js"></script-->
-    <script>
-        fetch('./resources/scripts/named_colors.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                window.namedColors = data;
-                console.log('namedColors loaded:', namedColors); // Add this line for debugging
-            })
-            .catch(error => console.error('Error loading named_colors.json:', error));
-              
-        
-        /*fetch('resources/scripts/named_colors.json')
-            .then(response => response.json())
-            .then(data => {
-                window.namedColors = data;
-                console.log('namedColors loaded:', namedColors); // Add this line for debugging
-            })
-            .catch(error => console.error('Error loading named_colors.json:', error));*/
-            
-        
-        function setupColorInputs() {
-            document.getElementById('hex').addEventListener('input', () => updateColor('hex'));
-            document.getElementById('rgb').addEventListener('input', () => updateColor('rgb'));
-            document.getElementById('hsl').addEventListener('input', () => updateColor('hsl'));
-            document.getElementById('color').addEventListener('input', () => updateColor('color'));
-        }
-        
-        setupColorInputs();
-    </script>
+    <!-- Link to external JavaScript file -->
+    <script src="resources/scripts/myscript.js"></script>
 </body>
 </html>
